@@ -9,10 +9,9 @@
 import UIKit
 var temp = ""
 class ViewController: UIViewController {
-
+    var flag = 0
+    var y:String=""
     @IBOutlet weak var x: UITextField!
-    @IBOutlet weak var y: UITextField!
-    @IBOutlet weak var z: UITextField!
     @IBAction func one(_ sender: Any) {
         x.text = x.text! + "1"
         
@@ -44,6 +43,51 @@ class ViewController: UIViewController {
     }
     @IBAction func zero(_ sender: Any) {
         x.text = x.text! + "0"
+    }
+    @IBAction func jia(_ sender: UIButton) {
+        y=x.text!
+        x.text=""
+        flag = 1
+    }
+    @IBAction func jian(_ sender: UIButton) {
+        y=x.text!
+        x.text=""
+        flag = 2
+    }
+    @IBAction func cheng(_ sender: UIButton) {
+        y=x.text!
+        x.text=""
+        flag = 3
+    }
+    @IBAction func chu(_ sender: UIButton) {
+        y=x.text!
+        x.text=""
+        flag = 4
+    }
+    @IBAction func value(_ sender: UIButton) {
+        switch flag {
+        case 1:
+            var temp:Double
+            temp=Double(y)! + Double(x.text!)!
+            x.text = "\(temp)"
+        case 2:
+            var temp:Double
+            temp=Double(y)! - Double(x.text!)!
+            x.text = "\(temp)"
+        case 3:
+            var temp:Double
+            temp=Double(y)! * Double(x.text!)!
+            x.text = "\(temp)"
+        case 4:
+            var temp:Double
+            temp = Double(y)! / Double(x.text!)!
+            x.text = "\(temp)"
+        default:
+            x.text=x.text
+        }
+    }
+    @IBAction func Del(_ sender: UIButton) {
+        x.text = ""
     }
     override func viewDidLoad() {
         super.viewDidLoad()

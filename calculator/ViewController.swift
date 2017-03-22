@@ -8,9 +8,12 @@
 
 import UIKit
 var temp = ""
+
+
 class ViewController: UIViewController {
     var flag = 0
-    var y:String=""
+    var s:String=""
+    var y:String = ""
     @IBOutlet weak var x: UITextField!
     @IBAction func one(_ sender: Any) {
         x.text = x.text! + "1"
@@ -44,44 +47,54 @@ class ViewController: UIViewController {
     @IBAction func zero(_ sender: Any) {
         x.text = x.text! + "0"
     }
+    @IBAction func point(_ sender: UIButton) {
+        x.text = x.text!+"."
+    }
     @IBAction func jia(_ sender: UIButton) {
-        y=x.text!
+        s=x.text!
         x.text=""
         flag = 1
     }
     @IBAction func jian(_ sender: UIButton) {
-        y=x.text!
+        s=x.text!
         x.text=""
         flag = 2
     }
     @IBAction func cheng(_ sender: UIButton) {
-        y=x.text!
+        s=x.text!
         x.text=""
         flag = 3
     }
     @IBAction func chu(_ sender: UIButton) {
-        y=x.text!
-        x.text=""
-        flag = 4
+            s=x.text!
+            x.text=""
+            flag = 4
     }
     @IBAction func value(_ sender: UIButton) {
         switch flag {
         case 1:
             var temp:Double
-            temp=Double(y)! + Double(x.text!)!
+            temp=Double(s)! + Double(x.text!)!
             x.text = "\(temp)"
         case 2:
             var temp:Double
-            temp=Double(y)! - Double(x.text!)!
+            temp=Double(s)! - Double(x.text!)!
             x.text = "\(temp)"
         case 3:
             var temp:Double
-            temp=Double(y)! * Double(x.text!)!
+            temp=Double(s)! * Double(x.text!)!
             x.text = "\(temp)"
         case 4:
-            var temp:Double
-            temp = Double(y)! / Double(x.text!)!
-            x.text = "\(temp)"
+            if y == "0"
+            {
+                var temp:Double
+                temp = Double(s)! / Double(x.text!)!
+                x.text = "\(temp)"
+            }
+            else{
+                x.text = "0不能做除数"
+
+            }
         default:
             x.text=x.text
         }

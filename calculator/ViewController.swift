@@ -85,7 +85,7 @@ class ViewController: UIViewController {
             temp=Double(s)! * Double(x.text!)!
             x.text = "\(temp)"
         case 4:
-            if y == "0"
+            if x.text != "0"
             {
                 var temp:Double
                 temp = Double(s)! / Double(x.text!)!
